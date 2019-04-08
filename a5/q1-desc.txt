@@ -1,0 +1,16 @@
+Reads:
+line 7:reads the value of i #r0=i
+Line 9 :reads the value of a #r1=a=&d0
+line 10:reads the value of d0 #r1=d0=&d1
+line 11:reads the value of d1[i] #r2=d1[i]
+line 22:reads the value of d0[i+1] #r2=d0[i+1]
+line 32:reads the value of d0[5] #r1=d0[5]=&d2[0]
+Line33:reads the value of d2[0] #r1=d2[0]
+Line 34:reads the value of d3[i] #r2=d3[i]
+
+Writes:
+Line13 : writes the value of v0
+Line24 :writes the value of v1
+Line 36:writes the values of v2
+Line42:writes the value of a->b.a
+Line54:writes the value of v3

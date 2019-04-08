@@ -1,0 +1,6 @@
+The leak is in the helper.c, the function "void helper_process_input(int argc, char** argv)".In every loop, it create a struct int pointer, and let it to point to a new heap memory. At the end of the function, the local pointer is gone, however, the memory it point to is still there, no pointer can get access to it, which causes memory leak. Thus, I fix it by adding a line of code at the end of each loop:rc_free_ref(integer); I use the free method in refcount.c which can explicit free the memory.
+And there are several relevant functions that we need to fix:
+(1)In the integer.c->struct integer* integer_create(int value) function, we need change the way it malloc memory by using rc_malloc in refcount.c.
+(2)Since the pointer of stack and the one of set may point to a same element, in order to avoid double free error,  we also need to change the way to free pointer in void stack_pop_and_print() function by using  rc_free_ref(element) and also need to free element->integer
+(3)In set, in order to set a set to empty and avoid seg fault and memory leak, we need to check if the set element is null and then free set[I] and then finally set to null
+      

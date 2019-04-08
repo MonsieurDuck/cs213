@@ -1,0 +1,6 @@
+In the list, all of the elements are freed before the second traversal and print, which makes tree have dangling pointers.
+
+1)In list_add_element: call rc_malloc of pointer to element instead of malloc and then keep element's ref
+2)In list_delete_element: call element_free_ref of pointer to element instead of free(e) and there is no need for free(e->value) (implemented in element_free_ref)
+3)In tree_insert_node: call element_keep_ref
+4)In tree_delete_helper: call element_free_ref of (n->e) instead of free(n->e)
