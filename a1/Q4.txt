@@ -1,0 +1,5 @@
+Q4:
+Since internet use the little endian but our program use the big endian
+521829 ->0x7F665 correct: 65f60700
+-2207539->0xffde5181 correct: 8151deff
+Thus, the correct position is 65f60700, 8151deff

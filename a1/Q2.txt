@@ -1,0 +1,2 @@
+Q2.
+The  big-endian, 8-byte long stored at location Ox7020 is 5D29FE43A7B42606
